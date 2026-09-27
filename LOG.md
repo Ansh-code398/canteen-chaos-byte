@@ -93,6 +93,20 @@ order screen round in different places.
 
 **Time:** 5 minutes
 
+## CC-06 — "I ordered more than they had"
+
+**Reproduced:** The counter says only 5 hakka noodels were left but it let me order 10
+
+**Cause:** setQty function in state.js was not checking the stock of the dish before allowing the quantity to be updated in the cart.
+
+**Fix:**: Added a check in setQty function to ensure that the quantity being added to the cart does not exceed the available stock of the dish. If it does, it returns an error message indicating the maximum available stock.
+
+**Checked:** The cart now correctly prevents adding more items than are available in stock, and displays an appropriate error message when attempting to do so.
+
+**Time:** 15 minutes 
+
+
+
 ## CC-0X — "<the complaint, in short>"
 
 **Reproduced:**
