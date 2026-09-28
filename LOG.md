@@ -105,6 +105,29 @@ order screen round in different places.
 
 **Time:** 15 minutes 
 
+# CC-07: Cancelling makes it worse
+
+**Reproduced:** Ordered 2 hakka noodles, then cancelled the order. The stock counter still says 3 left instead of 5.
+
+**Cause:** Release stock function decreased stock instead of increasing it when an order is cancelled. The stock was being updated incorrectly in the backend logic.
+
+**Fix:**: Updated the release stock function in validation.js to correctly increase the stock of the dish when an order is cancelled. Also updated the frontend to reflect the correct stock after cancellation.
+
+**Checked:** The stock now correctly reflects the available quantity after an order is cancelled.
+
+**Time:** 15 minutes 
+
+# CC-08: An old coupon still works
+
+**Reproduced:** Applied the coupon code "FRESHERS24" which was 2024's offer and expired, but it still gave a discount on the order.
+
+**Cause:** The coupon's expiration date was not being checked properly in the applyCoupon function. 
+
+**Fix:**: Updated the applyCoupon function to check the expiration date of the coupon before applying it. If the coupon has expired, it will return an error message.
+
+**Checked:** The coupon code "FRESHERS24" now correctly returns an error message indicating that the coupon has expired and does not apply any discount to the order.
+
+**Time:** 10 minutes 
 
 
 ## CC-0X — "<the complaint, in short>"
