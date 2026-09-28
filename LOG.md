@@ -129,6 +129,17 @@ order screen round in different places.
 
 **Time:** 10 minutes 
 
+### CC-09: "The menu shows more dishes than it should"
+
+**Reproduced:** The menu is displaying more dishes than it should (it is repeating all dishes).
+
+**Cause:** The paginate function in search.js was returning the entire list of dishes instead of just the paginated items. The items property in the returned object was set to the entire list instead of the sliced list.
+
+**Fix:**: Updated the paginate function in search.js to return only the sliced list of items for the current page, instead of the entire list.
+
+**Checked:** The menu now correctly displays only the dishes for the current page.
+
+**Time:** 5 minutes
 
 ## CC-0X — "<the complaint, in short>"
 
