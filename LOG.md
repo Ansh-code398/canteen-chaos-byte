@@ -141,6 +141,18 @@ order screen round in different places.
 
 **Time:** 5 minutes
 
+### CC-10: "Sorting by price is backwards"
+
+**Reproduced:** When sorting dishes by price, the order is reversed from what is expected.
+
+**Cause:** The SORTERS object in search.js had the sorting functions for price-asc and price-desc reversed, causing the dishes to be sorted in the opposite order.
+
+**Fix:**: Updated the SORTERS object in search.js to correctly sort dishes by price in ascending order for price-asc and descending order for price-desc.
+
+**Checked:** The menu now correctly sorts dishes by price in ascending order.
+
+**Time:** 2 minutes
+
 ## CC-0X — "<the complaint, in short>"
 
 **Reproduced:**
